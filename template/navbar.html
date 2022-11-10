@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a class="navbar-brand" href="{% url 'school:index' %}">ABC SCHOOLS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'school:registration' %}">Register<span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'school:login' %}"><button>LOGIN</button></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Departments
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Computer_science_and_engineering#:~:text=Computer%20Science%20and%20Engineering%20%28CSE%29%20is%20an%20academic,in%20both%20Undergraduate%20as%20well%20Postgraduate%20with%20specializations.">CSE</a>
+          <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Mechanical_engineering">MECH</a>
+          <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Electronic_engineering">ECE</a>
+          <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Electrical_engineering">EEE</a>
+          <a class="dropdown-item" href="https://en.wikipedia.org/wiki/Civil_engineering">CIVIL</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+{% block body %}
+{% endblock %}
+
+</body>
+</html>

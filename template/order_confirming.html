@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+</head>
+<body>
+<h1>Your order is Confirmed</h1>
+<a href="{% url 'school:index' %}"><button class="btn btn-danger">HOME PAGE</button></a>
+</body>
+</html>

@@ -1,0 +1,118 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+var subjectObject = {
+  "CSE": {
+    "BIG DATA": [],
+    "AI":[],
+    "DEV OPS":[]
+
+  },
+  "MECH": {
+    "FM": [],
+    "MOS": [],
+    "MECHANICS": [],
+
+
+
+  },
+  "ECE": {
+    "SIGNALS": [],
+    "SYSTEMS": [],
+
+  }
+}
+window.onload = function() {
+  var subjectSel = document.getElementById("subject");
+  var topicSel = document.getElementById("topic");
+  for (var x in subjectObject) {
+    subjectSel.options[subjectSel.options.length] = new Option(x, x);
+  }
+  subjectSel.onchange = function() {
+    //empty Chapters- and Topics- dropdowns
+
+    topicSel.length = 1;
+    //display correct values
+    for (var y in subjectObject[this.value]) {
+      topicSel.options[topicSel.options.length] = new Option(y, y);
+    }
+  }
+  topicSel.onchange = function() {
+    //empty Chapters dropdown
+    //display correct values
+<!--    var z = subjectObject[subjectSel.value][this.value];-->
+<!--    for (var i = 0; i < z.length; i++) {-->
+<!--      chapterSel.options[chapterSel.options.length] = new Option(z[i], z[i]);-->
+<!--    }-->
+  }
+}
+</script>
+</head>
+<body>
+<h1 class="head" style="text-align:center;font-family: Georgia, serif;font-size:40px;text-decoration:underline;color:DarkSlateGray;">
+    REGISTRATION FORM
+
+</h1>
+<div class="form" style="background-color:Lavender;padding:50px;">
+<form action="submiting" method="post">
+    {% csrf_token %}
+      <label>NAME </label>
+      <input class="box" style="border-radius:5px; background-color:Cornsilk;font-size:13px;text-transform:uppercase;font-family: Georgia, serif; text-align:center;" type="text" name="username" placeholder="Enter userName"><br><br>
+      <label>DOB </label>
+      <input type="date" class="box" style="border-radius:5px; background-color:Cornsilk;font-size:13px;text-transform:uppercase;font-family: Georgia, serif; text-align:center;" name="DOB"><br><br>
+      <label>AGE </label>
+      <input type="number" class="box" style="border-radius:5px; background-color:Cornsilk;font-size:13px;text-transform:uppercase;font-family: Georgia, serif; text-align:center;" type="text" name="age" placeholder="Enter AGE"><br><br>
+       GENDER
+      <input type="radio" name="male" value="male">MALE
+      <input type="radio" name="female" value="female">FEMALE<br><br>
+      <label>PHONE </label>
+      <input class="box" style="border-radius:5px; background-color:Cornsilk;font-size:13px;text-transform:uppercase;font-family: Georgia, serif; text-align:center; type="number" name="num" placeholder="Enter Number"><br><br>
+      <label>MAIL ID </label>
+      <input type="email"class="box" style="border-radius:5px; background-color:Cornsilk;font-size:13px;text-transform:uppercase;font-family: Georgia, serif; text-align:center;" name="username" placeholder="Enter MAIL ID"><br><br>
+      <label>ADDRESS </label>
+      <input class="box" style="border-radius:5px; background-color:Cornsilk;font-size:13px;text-transform:uppercase;font-family: Georgia, serif; text-align:center;" type="text" name="username" placeholder="Enter ADDRESS"><br><br>
+
+
+
+    DEPARTMENT <select class="box" style="border-radius:5px; background-color:Cornsilk;font-size:13px;text-transform:uppercase;font-family: Georgia, serif; text-align:center;" name="subject" id="subject">
+    <option  value="" selected="selected">Select DEPARTMENT</option>
+  </select>
+  <br><br>
+DISTRICTS <select class="box" style="border-radius:5px; background-color:Cornsilk;font-size:13px;text-transform:uppercase;font-family: Georgia, serif; text-align:center;" name="topic" id="topic">
+    <option value="" selected="selected">Please Select Subject first</option>
+  </select>
+  <br><br>
+    PURPOSE
+     <select class="box" style="border-radius:5px; background-color:Cornsilk;font-size:13px;text-transform:uppercase;font-family: Georgia, serif; text-align:center;" name="type" id="A/C type">
+        <option value="enq">ENQUIRY</option>
+
+         <option value="ord">PLACE ORDER</option></select>
+
+    </select>
+     <br><br>
+
+    MATERIALS PROVIDE
+        <input type="checkbox" name="checkbox" value="book">BOOK
+        <input type="checkbox" name="checkbox" value="paper">PAPER
+        <input type="checkbox" name="checkbox" value="pen">PEN
+        <br><br>
+        <a href="{% url 'school:submiting' %}"><button class="btn btn-success">SUBMIT</button></a>
+
+
+</form>
+
+
+        <button class="btn" style="border-radius:5px;background-color:Cornsilk;font-size:15px;text-transform:uppercase;font-family: Georgia, serif;">
+            <a href="{% url 'school:index' %}">LOGOUT</a>
+        </button>
+
+</div>
+</body>
+</html>
+
+
+
+
